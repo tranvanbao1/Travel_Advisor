@@ -37,8 +37,9 @@ function App() {
   useEffect(() => {
     if (bounds.sw && bounds.ne) {
       setIsLoading(true);
-      getWeatherData(coordinates.lat, coordinates.lng)
-        .then((data)=>setWeatherData(data))
+      getWeatherData(coordinates.lat, coordinates.lng).then((data) =>
+        setWeatherData(data)
+      );
       getPlacesData(type, bounds?.sw, bounds.ne).then((data) => {
         setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
         setFilteredPlaces([]);
